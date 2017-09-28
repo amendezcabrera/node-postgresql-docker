@@ -1,5 +1,3 @@
-'use strict';
-
 const express = require('express')
 
 // Constants
@@ -9,8 +7,20 @@ const HOST = '0.0.0.0'
 // App
 const app = express()
 
+app.use((req, res, next) => {
+    console.log(req.headers)
+    next()
+})
+
+app.use((req, resp, next) => {
+    req.chance = Math.random()
+    next()
+})
+
 app.get('/', (req, res) => {
-    res.send('Hello world! Beautiful world...')
+    res.json({
+        chance: req.chance
+    })
 });
 
 app.listen(PORT, HOST)
