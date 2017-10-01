@@ -1,7 +1,12 @@
 'use strict'
 
-const pg = require('pg')
-const conString = 'postgres://postgres:@pgdb/node_tutorial_db'
+const {Pool, Client} = require('pg')
+const pool = new Pool({
+    user: 'postgres',
+    host: 'pgdb',
+    database: 'node_tutorial_db',
+    password: ''
+})
 
 const path = require('path')
 const express = require('express')
@@ -14,19 +19,10 @@ const HOST = '0.0.0.0'
 // App
 const app = express()
 
-/*pg.connect(conString, function(err, client, done){
-    if(err){
-        return console.error('error fetching client from pool', err)
-    }
-    client.query('SELECT $1::varchar AS my_first_query', ['node_tutorial_db'], function(err, result){
-        done()
-        if(err){
-            return console.error('error happened during query', err)
-        }
-        console.log(result.rows[0])
-        process.exit(0)
-    })
-})  */
+pool.query('SELECT * FROM users AS my_first_query', (err, res) => {
+    console.log(err, res)
+    pool.end()
+})
 
 app.engine('.hbs', exphbs({
     defaultLayout: 'main',
