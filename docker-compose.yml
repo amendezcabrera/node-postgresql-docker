@@ -2,11 +2,10 @@ version: "2"
 
 networks:
   main_traffic:
-    external: true
 
 services:
   web:
-    build: app
+    build: ./app
     ports:
       - "81:8080"
     networks:
@@ -16,11 +15,11 @@ services:
   db:
     image: postgres:latest
     volumes:
-      - "./db_data:/var/lib/postgresql"
+      - ./db_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     environment:
-      - DEBUG=true
+      - DEBUG=false
     networks:
       main_traffic:
         aliases:

@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "express": "^4.13.3",
-    "express-handlebars": "^3.0.0"
+    "express-handlebars": "^3.0.0",
+    "pg": "7.3.0",
+    "sequelize": "4.13.1"
   }
 }
