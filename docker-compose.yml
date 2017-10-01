@@ -1,9 +1,7 @@
 version: "2"
 
 networks:
-  http_traffic:
-    external: true
-  db_traffic:
+  main_traffic:
     external: true
 
 services:
@@ -12,9 +10,9 @@ services:
     ports:
       - "81:8080"
     networks:
-      http_traffic:
+      main_traffic:
         aliases:
-          - node
+          - webserver
   db:
     image: postgres:latest
     volumes:
@@ -24,7 +22,7 @@ services:
     environment:
       - DEBUG=true
     networks:
-      db_traffic:
+      main_traffic:
         aliases:
           - pgdb
   pgadmin:
@@ -34,6 +32,6 @@ services:
     ports:
       - "5050:5050"
     networks:
-      db_traffic:
+      main_traffic:
         aliases:
           - pgadmin
