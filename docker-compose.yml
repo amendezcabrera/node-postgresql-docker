@@ -1,7 +1,51 @@
 version: "2"
+
+networks:
+  http_traffic:
+    external: true
+  db_traffic:
+    external: true
+
 services:
   web:
-    build: .
-    ports: ["49160:8080"]
+    build: app
+    ports:
+      - "81:8080"
+    networks:
+      http_traffic:
+        aliases:
+          - node
   db:
     image: postgres:latest
+    volumes:
+      - "./db_data:/var/lib/postgresql"
+    ports:
+      - "5432:5432"
+    environment:
+      - DEBUG=true
+
+      - DB_USER=root
+      - DB_PASS=postgres
+      - DB_NAME=postgres
+      - DB_TEMPLATE=
+
+      - DB_EXTENSION=
+
+      - REPLICATION_MODE=
+      - REPLICATION_USER=
+      - REPLICATION_PASS=
+      - REPLICATION_SSLMODE=
+    networks:
+      db_traffic:
+        aliases:
+          - pgdb
+  pgadmin:
+    # default user: pgadmin4@pgadmin.org
+    # default password: admin
+    image: fenglc/pgadmin4
+    ports:
+      - "5050:5050"
+    networks:
+      db_traffic:
+        aliases:
+          - pgadmin
