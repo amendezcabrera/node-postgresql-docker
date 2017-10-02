@@ -38,3 +38,8 @@ services:
       main_traffic:
         aliases:
           - pgadmin
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin4/data
+
+volumes:
+  pgadmin_data:
