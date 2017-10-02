@@ -11,6 +11,8 @@ Project to create a Docker container with NodeJS, PostgreSQL, PGAdmin 4 and some
 
 If you don't follow this last two steps you will see some errors in the console
 
+After doing this you can modify the NodeJS project files in the app folder and thanks to `nodemon` you should automatically see your changes by loading the [web server URL](http://localhost:81) in your browser
+
 ## Documentation
 
 After composing the included containers you are going to have some services listening and binded to your host, access them through:
