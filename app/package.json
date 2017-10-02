@@ -5,13 +5,16 @@
   "author": "Alberto Mendez <alberto@mendezcabrera.com>",
   "main": "server.js",
   "scripts": {
+    "prestart": "npm install;nodemon .;",
     "start": "node server.js"
   },
   "dependencies": {
+    "angular": "1.6.6",
     "express": "^4.13.3",
     "express-handlebars": "^3.0.0",
+    "express-validator": "4.2.1",
+    "nodemon": "^1.12.1",
     "pg": "7.3.0",
-    "sequelize": "4.13.1",
-    "angular": "1.6.6"
+    "sequelize": "4.13.1"
   }
 }

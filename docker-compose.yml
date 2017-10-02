@@ -12,6 +12,10 @@ services:
       main_traffic:
         aliases:
           - webserver
+    depends_on:
+      - db
+    volumes:
+      - ./app:/usr/src/app
   db:
     image: postgres:latest
     volumes:
