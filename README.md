@@ -26,5 +26,5 @@ NodeJS included libraries:
 * [Express](https://www.npmjs.com/package/express)
 * [Express Handlebars](https://www.npmjs.com/package/express-handlebars)
 * [Nodemon](https://www.npmjs.com/package/nodemon)
-* [pg](https://www.npmjs.com/package/pg)
-* [sequelize](https://www.npmjs.com/package/sequelize)
+* [Pg](https://www.npmjs.com/package/pg)
+* [Sequelize](https://www.npmjs.com/package/sequelize)
