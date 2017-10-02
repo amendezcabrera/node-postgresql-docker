@@ -3,6 +3,7 @@ Project to create a Docker container with NodeJS, PostgreSQL, PGAdmin 4 and some
 # Usage
 
 * Clone this repo
+* Create a `db_data` folder in the project root, next to the `docker-compose.yml` file
 * Build it with `docker-compose build`
 * Run it using `docker-compose up`
 * (Optional) Create a `node_tutorial_db` in PostgreSQL through [PGAdmin](http://localhost:5050) (see `Documentation` for credentials) or whatever client do you prefer
